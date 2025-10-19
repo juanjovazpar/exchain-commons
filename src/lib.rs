@@ -2,7 +2,6 @@ pub mod middlewares;
 pub mod structs;
 pub mod traits;
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

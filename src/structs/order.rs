@@ -2,19 +2,22 @@ use std::cmp::Ordering;
 use chrono::Utc;
 use uuid::Uuid;
 use super::linked_hashmap::HasId;
+use serde::Deserialize;
 
 pub type Price = u32;
 pub type OrderId = u64;
 pub type Quantity = u64;
 pub type Timestamp = i64;
 
-#[derive(Eq, Clone, PartialEq, Debug)]
+#[derive(Deserialize, Eq, Clone, PartialEq, Debug)]
+#[serde(rename_all = "lowercase")]
 pub enum Side {
     Ask,
     Bid
 }
 
-#[derive(Eq, Clone, PartialEq, Debug)]
+#[derive(Deserialize, Eq, Clone, PartialEq, Debug)]
+#[serde(rename_all = "lowercase")]
 pub enum Mode {
     Limit,
     Market
