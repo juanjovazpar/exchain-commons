@@ -10,3 +10,11 @@ A Rust library containing shared traits, structs, middlewares, tools and gRPC de
 ````
 cargo build
 ````
+
+### gRPC channels
+To build the channels from .proto files, we need to install locally `protobuf`:
+
+````
+// macOS (Homebrew)
+brew install protobuf
+`````

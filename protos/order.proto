@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package trading;
+
+import "google/protobuf/timestamp.proto";
+
+enum Side {
+    ASK = 0;
+    BID = 1;
+}
+
+enum Mode {
+    LIMIT = 0;
+    MARKET = 1;
+}
+
+message Order {
+    string id = 1;
+    string owner = 2;
+    uint64 quantity = 3;
+    uint32 price = 4;
+    uint64 executed = 5;
+    google.protobuf.Timestamp timestamp = 6;
+    Side side = 7;
+    Mode mode = 8;
+}
+
+service OrderService {
+    rpc SendOrder (Order) returns (OrderAck);
+}
+
+message OrderAck {
+    string id = 1;
+    bool accepted = 2;
+}
