@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package wallets;
+
+import "google/protobuf/timestamp.proto";
+
+message Wallets {
+    string owner = 1;
+    uint32 quantity_base = 2;
+    uint32 quantity_quote = 3;
+}
+
+service WalletService {
+    rpc CreateWallets (Wallets) returns (WalletsAck);
+}
+
+message WalletsAck {
+    string wallet_base = 1;
+    string wallet_quote = 2;
+    bool accepted = 3;
+}

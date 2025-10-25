@@ -3,8 +3,9 @@ pub mod structs;
 pub mod traits;
 
 // gRPC packages
-pub mod api {
+pub mod grpc_api {
     tonic::include_proto!("trading");
+    tonic::include_proto!("wallets");
 }
 
 /* 
